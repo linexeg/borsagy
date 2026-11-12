@@ -1,0 +1,2901 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بورصجي | borsagy.si — المرافق الذكي للمضاربين في البورصة المصرية</title>
+  <meta name="description" content="بورصجي (borsagy.si) منصة تجمع بيانات كل الشركات المقيدة في البورصة المصرية وتقيّم جودة الأسهم، لكن قلب المشروع هو المرافق الذكي: منظومة من 84 وكيل ذكاء اصطناعي ترافقك من اختيار السهم وشركة السمسرة حتى الخروج الآمن." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    body {
+      font-family: 'Readex Pro', 'Cairo', sans-serif;
+      background-color: #060D0A;
+      color: #F1F5F3;
+    }
+    h1, h2, h3 {
+      font-family: 'Cairo', sans-serif;
+      text-wrap: balance;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <!-- Top Header with Certified Candlestick Brand -->
+  <header class="border-b border-white/10 bg-[#060D0A]/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 text-xl font-extrabold text-white tracking-tight">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+          <path d="M32 4L56 13V33C56 48.5 45 57.5 32 61C19 57.5 8 48.5 8 33V13L32 4Z" fill="#10B981" fill-opacity="0.16" stroke="#10B981" stroke-width="2.4"/>
+          <line x1="21" y1="26" x2="21" y2="46" stroke="#10B981" stroke-width="1.6" stroke-linecap="round" />
+          <rect x="18" y="30" width="6" height="13" rx="1.5" fill="#10B981" />
+          <line x1="32" y1="16" x2="32" y2="46" stroke="#10B981" stroke-width="1.6" stroke-linecap="round" />
+          <rect x="29" y="21" width="6" height="22" rx="1.5" fill="#10B981" />
+          <line x1="43" y1="10" x2="43" y2="46" stroke="#F59E0B" stroke-width="1.6" stroke-linecap="round" />
+          <rect x="40" y="14" width="6" height="29" rx="1.5" fill="#F59E0B" />
+          <path d="M14 41C14 46.5 21 49 32 49C43 49 50 46.5 50 41" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" />
+          <circle cx="32" cy="54.5" r="3.2" fill="#F59E0B" />
+        </svg>
+        <span>بورصجي</span>
+        <span class="text-emerald-400 font-mono text-sm">borsagy.si</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#challenge" class="hover:text-white">سياق السوق</a>
+        <a href="#companion" class="hover:text-white">المرافق الذكي</a>
+        <a href="#agents" class="hover:text-white">منظومة الوكلاء (84)</a>
+        <a href="#sandbox" class="text-emerald-400 font-bold hover:underline">المحاكي التخيلي</a>
+        <a href="#brokers" class="hover:text-white">شركات السمسرة</a>
+        <a href="#topics" class="hover:text-white">دليل الموضوعات</a>
+        <a href="#charter" class="hover:text-white">ميثاق الأمان</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#sandbox" class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold text-xs">تجربة المحاكي</a>
+        <a href="#agents" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-xs">استكشاف الوكلاء (84)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero with 3D Canvas -->
+  <section class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7 space-y-6">
+      <p class="text-xs text-emerald-400 font-semibold">منصة المرافق الذكي للمضاربين في البورصة المصرية (EGX) · الإصدار 2 · دراسة شاملة وملحق السمسرة · أكتوبر 2026</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">المرافق الذي يساعدك على قرارات أفضل وخسارة أقل</h1>
+      <p class="text-base text-slate-300 leading-relaxed">بورصجي (borsagy.si) منصة تجمع بيانات كل الشركات المقيدة في البورصة المصرية وتقيّم جودة الأسهم، لكن قلب المشروع هو المرافق الذكي: منظومة من 84 وكيل ذكاء اصطناعي ترافقك من اختيار السهم وشركة السمسرة حتى الخروج الآمن.</p>
+      <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-sm text-amber-200">
+        <strong class="text-amber-300">تنبيه في الصياغة وميثاق الصدق:</strong> لا توجد أداة تضمن النجاح في المضاربة. لذلك تُصاغ رسالة المنصة على أنها «المرافق الذي يساعدك على قرارات أفضل وخسارة أقل»، لا «الحل الوحيد للنجاح». هذا أصدق، وأسلم قانونياً، وأبقى لثقة المستخدم.
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+        
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+            <div class="text-2xl font-bold text-emerald-400 tabular-nums">84</div>
+            <div class="text-xs text-white font-medium mt-1">وكيل ذكاء اصطناعي متخصص</div>
+            <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">منها 8 وكلاء في النواة التأسيسية للإطلاق</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+            <div class="text-2xl font-bold text-emerald-400 tabular-nums">1.057T</div>
+            <div class="text-xs text-white font-medium mt-1">حجم تداول أكبر 10 شركات سمسرة</div>
+            <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">تريليون جنيه في الربع الثالث 2026 (EGX)</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+            <div class="text-2xl font-bold text-emerald-400 tabular-nums">10</div>
+            <div class="text-xs text-white font-medium mt-1">تعهدات في ميثاق الأمان العلني</div>
+            <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">حماية رأس المال والخصوصية والحياد التام</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10">
+            <div class="text-2xl font-bold text-emerald-400 tabular-nums">EGX30/70/100</div>
+            <div class="text-xs text-white font-medium mt-1">مؤشرات البورصة المغطاة</div>
+            <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">تحليل أساسي، فني، سيولة، ومخاطر من 100</div>
+          </div>
+      </div>
+    </div>
+    <div class="lg:col-span-5">
+      <div id="three-hero" class="w-full h-[420px] rounded-2xl bg-[#091410] border border-white/10 overflow-hidden"></div>
+    </div>
+  </section>
+
+  <!-- Market Challenge & Target Segments -->
+  <section id="challenge" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-5 space-y-4">
+        <span class="text-xs text-emerald-400 font-semibold">واقع التداول الفردي في البورصة المصرية</span>
+        <h2 class="text-2xl font-bold text-white">التحديات الهيكلية والفرصة الاستثمارية</h2>
+        <div class="space-y-3 pt-2">
+          
+            <div class="p-4 rounded-xl border bg-[#0A1611] border-white/10">
+              <div class="text-sm font-bold text-white mb-1">تشتت المضارب الفرد بين المنصات والجروبات</div>
+              <p class="text-xs text-slate-300 leading-relaxed">المضارب الفرد يتنقل بين تطبيق الوساطة وموقع الأخبار وتحليلات متفرقة وجروبات توصيات بلا مصداقية.</p>
+            </div>
+            <div class="p-4 rounded-xl border bg-[#0A1611] border-white/10">
+              <div class="text-sm font-bold text-white mb-1">توصيات بلا سجل أداء ولا مراعاة للمخاطر</div>
+              <p class="text-xs text-slate-300 leading-relaxed">التوصيات المنتشرة على تليجرام وواتساب بلا سجل أداء علني موثق، ولا تراعي حجم محفظة أو مخاطر كل شخص.</p>
+            </div>
+            <div class="p-4 rounded-xl border bg-[#0A1611] border-white/10">
+              <div class="text-sm font-bold text-white mb-1">غياب المرافقة بعد قرار الدخول</div>
+              <p class="text-xs text-slate-300 leading-relaxed">أغلب المنصات تعرض بيانات فقط، ولا ترافق المضارب بعد قرار الدخول، وهنا تحدث أغلب الأخطاء (التأخر في الخروج، ترك الخسارة تكبر).</p>
+            </div>
+            <div class="p-4 rounded-xl border bg-emerald-500/10 border-emerald-500/30">
+              <div class="text-sm font-bold text-white mb-1">الفرصة: نمو المستثمرين الأفراد والهوية المصرية</div>
+              <p class="text-xs text-slate-300 leading-relaxed">نمو المستثمرين الأفراد وانتشار تطبيقات التداول، والحاجة الماسة لمحتوى ومرافق عربي بلهجة المستخدم المصرية يفهم تفاصيل السوق.</p>
+            </div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 space-y-4">
+        <span class="text-xs text-emerald-400 font-semibold">المصفوفة التكيفية</span>
+        <h2 class="text-2xl font-bold text-white">كيف يتكيف المرافق الذكي مع أنماط المتداولين؟</h2>
+        <div class="space-y-3 pt-2">
+          
+            <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-white">المبتدئ ومن يريد الانضباط</span>
+                <span class="text-xs text-emerald-400 font-mono">وضع المدير</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">وضع المدير: خطة جاهزة متكاملة (دخول، حجم، وقف خسارة، أهداف) وحدود صارمة للمخاطرة يوافق عليها المضارب.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-white">المضارب النشط والخبير</span>
+                <span class="text-xs text-emerald-400 font-mono">وضع الناصح</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">وضع الناصح: إشارات سريعة (إشارة + سعر + سبب في 3 جمل) والقرار النهائي للمضارب مع رقابة المخاطر.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-sm font-bold text-white">المستثمر متوسط الأجل</span>
+                <span class="text-xs text-emerald-400 font-mono">الوضع الهجين</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">الوضع الهجين: يبدأ في وضع المدير ومع إثبات الالتزام ينتقل للناصح، مع خطة عامة وحرية في التفاصيل وعودة تلقائية للمدير بعد سلسلة خسائر.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companion Messages -->
+  <section id="companion" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <h2 class="text-2xl font-bold mb-2 text-white">نماذج رسائل المرافق الذكي بلغة مالية واعية بالعامية المصرية</h2>
+    <p class="text-sm text-slate-400 mb-6">صياغة تحترم عقل المتداول، توضح أسباب القرار في 3 جمل، ولا تفرّط في قواعد إدارة المخاطر.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>وضع المدير · خطة جاهزة قبل الدخول</span>
+              <span class="font-mono text-amber-300 font-bold">COMI.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«جهزت لك خطة على سهم (س): دخول عند 10.00، وقف خسارة 9.50، هدف أول 11.00. حجم الصفقة 5% من محفظتك بس. توافق؟»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: 10.00 ج.م</span>
+            <span>وقف: 9.50 ج.م</span>
+            <span>حجم: 5%</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>وضع الناصح · إشارة فرصة فنية وسيولة</span>
+              <span class="font-mono text-amber-300 font-bold">FWRY.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«السهم قرّب من منطقة دعم والسيولة كويسة. لو دخلت، أنسب سعر قريب من 10.00. القرار ليك.»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: 10.00 ج.م</span>
+            <span>وقف: 9.60 ج.م</span>
+            <span>حجم: 7%</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>أثناء الصفقة · حماية الأرباح أثناء الصفقة</span>
+              <span class="font-mono text-amber-300 font-bold">SWDY.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«السهم وصل 10.80، قريب من هدفك. تحب نرفع وقف الخسارة لـ 10.20 نأمّن بيه جزء من المكسب؟»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: 10.00 ج.م</span>
+            <span>وقف: 10.20 ج.م (مُحدّث)</span>
+            <span>حجم: 5%</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>خروج آمن · تنفيذ وقف الخسارة بانضباط</span>
+              <span class="font-mono text-amber-300 font-bold">TMGH.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«وصل لوقف الخسارة اللي اتفقنا عليه عند 9.50. الخطة بتقول نخرج. الخسارة المحسوبة أقل من حدك الأقصى.»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: 10.00 ج.م</span>
+            <span>وقف: 9.50 ج.م</span>
+            <span>حجم: 5%</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>حماية سلوكية · حماية من البيع بذعر أو الاندفاع</span>
+              <span class="font-mono text-amber-300 font-bold">HRHO.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«لاحظت إنك عايز تبيع كل حاجة بعد نزول حاد. قبل ما تنفذ: ده كان في خطتك؟ عايز نراجع الأسباب سوا؟»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: مراجعة الخطة</span>
+            <span>وقف: تهدئة 5 دقائق</span>
+            <span>حجم: حماية المحفظة</span>
+          </div>
+        </div>
+        <div class="p-5 rounded-xl bg-[#0A1611] border border-white/10 flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-emerald-400 mb-2 flex items-center justify-between">
+              <span>رفض لحماية رأس المال · رفض قاطع لتركز المخاطر (حق اعتراض وكيل المخاطر)</span>
+              <span class="font-mono text-amber-300 font-bold">ABUK.CA</span>
+            </div>
+            <p class="text-sm text-white leading-relaxed mb-4">«الصفقة دي هتخلّي أكتر من 40% من محفظتك في سهم واحد، وده أعلى من حدك. مقدرش أوصي بيها بالحجم ده.»</p>
+          </div>
+          <div class="text-xs text-slate-400 pt-3 border-t border-white/5 flex justify-between tabular-nums">
+            <span>دخول: مرفوض بالحجم الحالي</span>
+            <span>وقف: سقف التركز 15%</span>
+            <span>حجم: 40% (مرفوض)</span>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- 84 AI Agents Directory -->
+  <section id="agents" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div>
+        <h2 class="text-2xl font-bold text-white">منظومة الـ 84 وكيل ذكاء اصطناعي ومسار اتخاذ القرار الإلزامي</h2>
+        <p class="text-sm text-slate-400 mt-1">اضغط على أي وكيل لعرض صفحته وتحليل المنافسة معه مقارنة بتطبيقات السوق (Thndr, TradingView, etc.).</p>
+      </div>
+      <span class="text-xs text-emerald-400 font-mono">EGX Multi-Agent Architecture</span>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      
+        <div onclick="showAgentModal(1)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#1</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل جودة البيانات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يفحص الأسعار الواردة، يكتشف الفجوات والقيم الشاذة، ويوقف أي إشارة إذا كانت البيانات مشكوكاً فيها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(2)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#2</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التحليل الأساسي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقرأ القوائم المالية ويحسب النسب (P/E, P/B, ROE، الديون، نمو الأرباح، التوزيعات) ويقارن بالقطاع.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(3)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#3</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التحليل الفني</div>
+            <p class="text-xs text-slate-300 leading-relaxed">المؤشرات (RSI, MACD) والأنماط والدعم والمقاومة والاتجاه على أطر زمنية متعددة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(4)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#4</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل السيولة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">حجم التداول، سهولة الخروج، اتساع الفرق بين العرض والطلب، أثر حدود التذبذب اليومي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(5)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#5</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الأخبار والإفصاحات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقرأ الإفصاحات والأخبار بالعربية ويلخصها ويحدد أثرها المحتمل على السهم.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(6)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#6</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المشاعر</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقيس نبرة الأخبار والتعليقات العامة تجاه السهم والقطاع.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(7)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#7</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الاقتصاد الكلي والقطاعات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتتبع سعر الصرف والفائدة والتضخم وأثرها على كل قطاع في البورصة المصرية.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(8)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#8</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التدفقات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتتبع نشاط المؤسسات والأجانب والعرب والأفراد إن توفرت البيانات.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(9)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#9</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل أحداث الشركات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">التوزيعات، زيادات رأس المال، الجمعيات العمومية، التواريخ المهمة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(10)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#10</span> · أ. البيانات والتحليل</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الشريعة الأساسي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">فلتر الأسهم المتوافقة مع الشريعة وفق معيار محدد ومعلن.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(11)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#11</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الماسح (Screener)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يفلتر كل أسهم EGX ويرشح الأنسب لملف كل مضارب.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(12)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#12</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل نقاط الدخول والخروج</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحدد سعر الشراء والبيع المقترح ووقف الخسارة والأهداف.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(13)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#13</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المخاطر وحجم الصفقة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحدد نسبة الصفقة من المحفظة وأقصى خسارة مقبولة، وله حق الاعتراض (Veto) على أي إشارة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(14)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#14</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل بناء المحفظة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">توزيع الأموال على الأسهم والقطاعات وتجنب التركز الزائد.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(15)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#15</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الاختبار التاريخي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يختبر الاستراتيجية على بيانات سابقة (آخر سنتين) قبل إصدار الإشارة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(16)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#16</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الضغط والمحاكاة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يختبر المحفظة ضد سيناريوهات مصرية (هبوط السوق، تغير الدولار أو الفائدة).</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(17)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#17</span> · ب. وكلاء القرار</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المنسّق (Coordinator)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يجمع آراء الوكلاء، يحل التعارض بينها، ويخرج بدرجة جودة موحدة من 100 وتوصية مفسَّرة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(18)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#18</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التعارف</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير الاستمارة ويصنف المضارب (خبرته، هدفه، تحمله للخسارة، حجم محفظته).</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(19)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#19</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مطابقة التريدر</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يختار شخصية التداول المناسبة حسب القطاع وحجم المحفظة والمخاطرة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(20)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#20</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المرافق الذكي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">الوكيل المحوري الذي يحادث المضارب ويرافقه في كل صفقة بوضعي الناصح والمدير.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(21)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#21</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل السلوك والانضباط</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يرصد أخطاء المضارب المتكررة ويتدخل عند الاندفاع أو مخالفة الخطة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(22)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#22</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التعليم</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يشرح المصطلحات والقرارات بـ«اشرح لي ببساطة» ويبني مسار تعلم للمبتدئ.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(23)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#23</span> · ج. التفاعل مع المضارب</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التقارير</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يصدر تقريراً أسبوعياً/شهرياً عن أداء المحفظة والتزام المضارب والدروس المستفادة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(24)" class="p-4 rounded-xl bg-[#0A1611] border border-amber-500/40 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#24</span> · د. الحوكمة والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold">نواة الإطلاق</span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الامتثال</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يمنع عبارات الضمان، يضيف إخلاء المسؤولية، ويفحص كل رسالة قبل إرسالها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(25)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#25</span> · د. الحوكمة والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل سجل الأداء</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يختم كل توصية بوقتها وسعرها ويقيس نتيجتها لاحقاً بلا تعديل.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(26)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#26</span> · د. الحوكمة والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المراقب (ضمان الجودة)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يكتشف التناقض بين الوكلاء والأرقام غير المنطقية و«الهلوسة» قبل وصول المخرجات للمستخدم.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(27)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#27</span> · د. الحوكمة والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الدعم والمجتمع</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يرد على الاستفسارات ويراقب المجتمع ضد التضليل والترويج لأسهم بعينها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(28)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#28</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التكاليف والصافي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحسب العمولات والرسوم والضرائب ويعرض الربح الصافي الحقيقي لكل صفقة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(29)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#29</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مقارنة الأصول والتضخم</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقارن أداء المحفظة بالتضخم والشهادات وأذون الخزانة والدولار والذهب.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(30)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#30</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التقويم والسياسة النقدية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتتبع الإجازات ومواعيد النتائج والجمعيات وقرارات الفائدة ويشرح أثرها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(31)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#31</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الطروحات والاستحواذات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتابع الطروحات الجديدة وزيادات رأس المال وعروض الشراء وأثرها على المساهم.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(32)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#32</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل فاحص التوصيات والشائعات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقيّم مخاطر توصية متداولة (سيولة، حجم غير طبيعي، غياب الأساس) دون اتهام أحد.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(33)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#33</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل كاشف الحركات المشبوهة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يرصد الارتفاعات الحادة بلا خبر ويحذر قبل الدخول في سهم قد يكون مدفوعاً.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(34)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#34</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل قارئ كشف الوساطة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقرأ كشف حساب المضارب (ملف أو صورة) ويحلل محفظته الفعلية دون ربط تقني معقد.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(35)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#35</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الصندوق الأسود</div>
+            <p class="text-xs text-slate-300 leading-relaxed">تحليل ما بعد الصفقة: هل السبب السوق أم تحليل خاطئ أم تنفيذ غير منضبط أم حظ؟</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(36)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#36</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل المحاكاة والمسابقات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير المحافظ التجريبية والتصنيفات الشهرية والتحديات مع الجامعات ونوادي الاستثمار.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(37)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#37</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الصوت واللهجة المصرية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحوّل رسائل المرافق إلى صوت بلهجة مصرية ويفهم الرسائل الصوتية للمضارب على واتساب.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(38)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#38</span> · هـ. الأفكار الفريدة بمصر</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل علاقات المستثمرين (B2B)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير لوحة الشركات المقيدة ويراجع ما تنشره للمستثمرين قبل عرضه.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(39)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#39</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل حارس المحفظة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يراقب حدود الخسارة الشخصية وسقف التركز ويوقف أي إشارة تخالفها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(40)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#40</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مكافحة الاحتيال</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحلل الرسائل والعروض المشبوهة («ربح مضمون»، «ضعف فلوسك») ويحذر المضارب.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(41)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#41</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل وضع الأزمة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يكتشف الهبوط الحاد والإيقاف ويفعّل بروتوكول الهدوء ويمنع الصفقات الاندفاعية.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(42)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#42</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الرفاهية والانضباط النفسي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يرصد الإفراط في التداول ويقترح الاستراحة (24 ساعة) ويدير المراقب الموثوق.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(43)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#43</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الأمن والخصوصية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يراقب الدخول المشبوه ويدير الموافقات والاسم المستعار وحذف البيانات بضغطة واحدة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(44)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#44</span> · و. الأمان والثقة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الشفافية وتضارب المصالح</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يوثّق درجات الثقة وسجل الأخطاء العلني ويطبق سياسة عدم التعارض.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(45)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#45</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل محامي الشيطان</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يعرض أقوى حجة ضد كل توصية قبل الدخول فلا يرى المضارب وجهاً واحداً للصفقة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(46)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#46</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل عقد الصفقة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يسجل خطة المضارب وسؤال «لماذا قد أخسر؟» ويذكّره بها عند أي رغبة في الخروج عن الخطة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(47)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#47</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الفجوة السلوكية والمزاج</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقارن الأداء الفعلي بالأداء لو الالتزام بالخطة ويربط المزاج (هادئ، متوتر، متحمس) بالنتائج.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(48)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#48</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل رخصة بورصجي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير الاختبارات والمستويات وفتح الميزات المتقدمة بعد إثبات فهم المخاطر والالتزام.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(49)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#49</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل بطاقة هوية السهم</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يلخص الشركة في صفحة واحدة بالعامية: تعمل ماذا، من أين تكسب، من يملكها، وأكبر مخاطرها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(50)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#50</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل فحص الصحة المحاسبية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يرصد علامات تستدعي الفحص (ديون متضخمة، أرباح بلا نقد، تأخر إفصاحات) كعلامات تستحق السؤال.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(51)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#51</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل خريطة الملكية والعلاقات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يبني خريطة الملكية (الشركات الأم والتابعة) ويتتبع حركة كبار المساهمين وأعضاء مجالس الإدارة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(52)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#52</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل السوابق التاريخية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقارن الأحداث الحالية (رفع فائدة، تغير صرف) بأحداث مشابهة سابقة مع التنبيه أن الماضي لا يضمن المستقبل.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(53)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#53</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل كاشف التنويع الوهمي والارتباط</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يكتشف إن كانت أسهمك الخمسة تتحرك معاً (ارتباط عالٍ) ويقترح توزيعاً أفضل.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(54)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#54</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل ضبط التوقعات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحول الأهداف المالية للمضارب إلى احتمالات واقعية ويقول بصدق إن كان الهدف غير واقعي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(55)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#55</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مؤشر ازدحام الصفقة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقيس تكدس المستخدمين على سهم ما بشكل مجمّع ومجهول لحماية المضارب من السير مع القطيع.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(56)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#56</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل البديل الأنسب</div>
+            <p class="text-xs text-slate-300 leading-relaxed">ينصح بالاستثمار طويل الأجل أو صناديق المؤشرات أو عدم التداول الآن عندما يكون ذلك أنسب للمبتدئ.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(57)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#57</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التنبيهات باللغة الطبيعية والملخصات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يترجم شروط المضارب الطبيعية لتنبيهات تلقائية، ويدير ميزانية الإشعارات وساعات الهدوء وملخص الـ 3 دقائق.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(58)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#58</span> · ز. الأفكار المتقدمة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل منشئ الاستراتيجيات (ابنِ وكيلك)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحول قواعد المضارب المتقدم بلغة بسيطة بلا كود لاستراتيجية قابلة للاختبار التاريخي الإلزامي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(59)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#59</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل سبب تحرك المحفظة (Digests)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يشرح كل يوم لماذا تحركت محفظتك ويربطها بأسبابها (السهم، القطاع، السوق، الدولار، خبر).</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(60)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#60</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مراقب الفرضية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتابع فرضية المضارب عند الشراء وينبهه فور ظهور ما يؤكدها أو يضعفها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(61)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#61</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مجهّز الأوامر</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يجهز الأمر (السهم والكمية والسعر) ويحيله لتطبيق الوساطة للتأكيد والتنفيذ بيد المضارب.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(62)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#62</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل عداد الانحراف (Tilt) والوسم التلقائي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقيس الانحراف عن الخطة ويصنف الأخطاء تلقائياً (انتقام، فومو، إفراط، خروج مبكر) ويحسب تكلفة التسرع.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(63)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#63</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل السلال الموضوعية المصرية</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يراجع السلال المنشورة (سلة المصدرين، التوزيعات، التذبذب المنخفض) ويتابع إعادة توازنها.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(64)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#64</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التكامل متعدد الوسطاء</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يوحد المحافظ الموزعة عبر أكثر من شركة وساطة في لوحة موحدة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(65)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#65</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل تدقيق الأداء الربع سنوي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يصدر تقرير التدقيق الربع سنوي العلني لأداء كل وكيل مع التكاليف والسيولة وفترات التراجع.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(66)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#66</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مؤشر مزاج المضاربين المصريين</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يبني المؤشر المجمّع المجهول لتوجه مستخدمي المنصة كمصدر فريد للإعلام والباحثين.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(67)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#67</span> · ح. الدراسة العالمية</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل بوابة المطورين (API و MCP)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير الوصول المفتوح للمطورين والمحللين لبناء أدوات فوق بيانات ووكلاء المنصة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(68)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#68</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل فاحص فخ السهم</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحسب درجة 0-100 لسهولة الخروج وتركّز الملكية وتاريخ إيقاف التداول وعلامات الخطر.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(69)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#69</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل ختم الشفافية المشفر</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يختم التوصيات زمنياً وينشر الملخص المشفر اليومي للتحقق العلني من عدم تعديل الماضي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(70)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#70</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل لوحة المضاربين الموثقين</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير اللوحة التعليمية ومقاييس المخاطر بالعربية والنسخ التجريبي ويُظهر «فرق التنفيذ».</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(71)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#71</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل سياق الكبار</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يفسر حركة كبار المساهمين والصفقات الكبيرة بسياق تاريخي ويختار التنبيه المهم فقط.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(72)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#72</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مؤشر الخوف والطمع المصري</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يبني المؤشر اليومي لمزاج السوق المصري (تذبذب + حجم تداول + اتساع الارتفاع + مشاعر).</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(73)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#73</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مدقق القنوات</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يسجل التوصيات العلنية للقنوات ويحسب أداءها الفعلي لاحقاً كإحصاء موضوعي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(74)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#74</span> · ط. أدوات الشفافية المكيّفة لـ EGX</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل خطة الشراء الدوري</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير خطط الشراء المنتظم بتذكير وتجهيز الأمر للمستثمر طويل الأجل مع وقف خسارة متحرك افتراضي.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(75)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#75</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التحقق من الجهات والتراخيص</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتحقق من ترخيص الجهات والمستشارين عبر السجلات الرسمية للرقابة المالية ويدير شارات التوثيق.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(76)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#76</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل فاحص ادعاءات الأداء</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يكتشف الادعاءات غير المسؤولة (وعد بعائد، غياب إفصاح الرعاية، ضغط زمني) في المنشورات.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(77)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#77</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل الحكم الشرعي المتقدم والزكاة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يفسر الحكم الشرعي بالتفصيل ويحسب تطهير الأرباح وزكاة المحفظة بحسب نية المضاربة أو الاستثمار.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(78)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#78</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مترجم ومبسّط الإفصاحات والقاموس</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يترجم ويلخص الإفصاحات ومؤتمرات الأرباح بالعامية ويشرح المصطلحات بلمسة واحدة داخل النص.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(79)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#79</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مختبر النماذج الجماعي</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يدير مسابقة علماء البيانات المصريين على بيانات EGX المجهّلة ويدمج أفضل النماذج بنقاط السمعة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(80)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#80</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل درجة المعايرة (Calibration)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يقيس صدق تقديرات الثقة للوكلاء والمضاربين (هل ثقة 70% تحققت في 70% من الحالات؟).</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(81)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#81</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل التصميم الأخلاقي والإشعار المفيد</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يراقب أثر الإشعارات والتصميم على سلوك المضارب ويحذف ما يرفع التداول بلا فائدة.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(82)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#82</span> · ي. الاستقصاء الثاني</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل بيانات الإفصاح المنظمة وتقرير التكاليف الموحد</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يحوّل إفصاحات الشركات إلى بيانات منظمة قابلة للبحث ويوحد نموذج مقارنة تكلفة الوسطاء.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(83)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#83</span> · ك. ملحق شركات السمسرة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل «اختر شركتك» (توصية السمسرة)</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتعرف على نمط تداولك ويحسب التكلفة السنوية المتوقعة بالجنيه عند كل شركة ويرشح الأنسب لك في 3 جمل.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+        <div onclick="showAgentModal(84)" class="p-4 rounded-xl bg-[#0A1611] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all flex flex-col justify-between">
+          <div>
+            <div class="text-xs text-slate-400 mb-1 flex justify-between">
+              <span><span class="tabular-nums text-emerald-400 font-bold font-mono">#84</span> · ك. ملحق شركات السمسرة</span>
+              <span class="text-amber-400 text-[10px] font-semibold"></span>
+            </div>
+            <div class="font-bold text-white text-sm mb-1">وكيل مراقب أسعار الوساطة</div>
+            <p class="text-xs text-slate-300 leading-relaxed">يتتبع قوائم أسعار شركات السمسرة وتغيراتها وتقرير البورصة الشهري ويحدث قاعدة البيانات تلقائياً.</p>
+          </div>
+          <div class="text-[11px] text-emerald-400 mt-3 pt-2 border-t border-white/5 flex justify-between font-medium">
+            <span>فتح صفحة الوكيل والمنافسة معه</span>
+            <span>↗</span>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Sandbox (المحاكي التخيلي) -->
+  <section id="sandbox" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs text-emerald-400 font-semibold">محاكي المحفظة التخيلي (Portfolio Sandbox)</span>
+        <h2 class="text-2xl font-bold text-white">تجربة تنفيذ الصفقات الافتراضية ومراقبة قرارات المرافق</h2>
+        <p class="text-sm text-slate-400 mt-1">اختبر التداول الافتراضي بدون أي مخاطرة مالية وفق إشارات الوكلاء.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-slate-400 font-mono">رأس المال: 200,000 ج</span>
+        <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 text-xs font-mono font-bold">جلسة تجريبية حية</span>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+        <div class="text-xs text-slate-400 mb-1">COMI.CA · التجاري الدولي</div>
+        <div class="text-lg font-bold text-white tabular-nums font-mono">82.50 ج <span class="text-xs text-emerald-400">+1.6%</span></div>
+        <div class="text-xs text-emerald-300 mt-1">إشارة المرافق: شراء عند 82.50 ج (وقف: 79.00 ج)</div>
+      </div>
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+        <div class="text-xs text-slate-400 mb-1">FWRY.CA · فوري للمدفوعات</div>
+        <div class="text-lg font-bold text-white tabular-nums font-mono">7.15 ج <span class="text-xs text-emerald-400">+1.85%</span></div>
+        <div class="text-xs text-emerald-300 mt-1">إشارة المرافق: شراء عند 7.15 ج (وقف: 6.85 ج)</div>
+      </div>
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+        <div class="text-xs text-slate-400 mb-1">SWDY.CA · السويدي إليكتريك</div>
+        <div class="text-lg font-bold text-white tabular-nums font-mono">51.80 ج <span class="text-xs text-rose-400">-1.15%</span></div>
+        <div class="text-xs text-amber-300 mt-1">إشارة المرافق: متابعة وحجز أرباح (وقف: 49.50 ج)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Topic Directory (دليل تفرعات الموضوع) -->
+  <section id="topics" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10 space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs text-emerald-400 font-semibold">الدليل الشامل لتفرعات الموضوع</span>
+        <h2 class="text-2xl font-bold text-white">كافة محاور وتفرعات دراسة منصة بورصجي (أكتوبر 2026)</h2>
+        <p class="text-sm text-slate-400 mt-1">فهرس مرجعي يغطي كافة أبعاد المشروع من آليات السوق إلى ميثاق الأمان.</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10 space-y-2">
+        <div class="font-bold text-emerald-400">1. سوق الأسهم المصرية (EGX)</div>
+        <p class="text-slate-300 leading-relaxed">الشركات المقيدة، المؤشرات (EGX30/70/100)، آليات التذبذب اليومية (10% و 20%)، وجودة السهم من 100.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10 space-y-2">
+        <div class="font-bold text-emerald-400">2. المرافق ورحلة الصفقة</div>
+        <p class="text-slate-300 leading-relaxed">رحلة الصفقة في 5 مراحل، الأنماط الثلاثة (المدير، الناصح، والهجين)، والمرافق الصوتي بالعامية المصرية.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10 space-y-2">
+        <div class="font-bold text-emerald-400">3. شبكة الـ 84 وكيلاً</div>
+        <p class="text-slate-300 leading-relaxed">المسار الإلزامي، فيتو وكيل المخاطر، والـ 11 تصنيفاً تخصصياً مع التحليل المقارن مع تطبيقات السوق.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10 space-y-2">
+        <div class="font-bold text-emerald-400">4. المختبر والسمسرة والأمان</div>
+        <p class="text-slate-300 leading-relaxed">حاسبة السمسرة #83، ترتيب أكبر 10 شركات (1.057T ج)، ميثاق الأمان الـ 10 تعهدات، وقرارات الرقابة المالية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brokers Q3 2026 Table -->
+  <section id="brokers" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <h2 class="text-2xl font-bold mb-2 text-white">الخريطة التحليلية لشركات السمسرة في البورصة المصرية (الربع الثالث 2026)</h2>
+    <p class="text-sm text-slate-400 mb-6">ترتيب رسمي لأكبر عشر شركات وساطة بإجمالي قيم تداول تجاوزت 1.057 تريليون جنيه.</p>
+    <div class="overflow-x-auto rounded-xl border border-white/10 bg-[#091410]">
+      <table class="w-full text-right text-sm">
+        <thead class="bg-white/5 text-slate-300 text-xs">
+          <tr>
+            <th class="p-3">#</th>
+            <th class="p-3">الشركة</th>
+            <th class="p-3">قيمة التداول (مليار ج)</th>
+            <th class="p-3">الحصة السوقية</th>
+            <th class="p-3">متوسط قيمة العملية (ج)</th>
+            <th class="p-3">العمولات والملاءمة</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/10">
+          
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">1</td>
+              <td class="p-3 font-semibold text-white">ثاندر (Thndr)</td>
+              <td class="p-3 tabular-nums font-mono">328.89</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">24%</td>
+              <td class="p-3 tabular-nums font-mono">24,007 ج</td>
+              <td class="p-3 text-xs text-slate-300">0.1% من قيمة الأمر + حد أدنى 2 ج (ومع اشتراك ثاندر تريدر: 50 صفقة شهرياً بلا عمولة تُرد في المحفظة)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">2</td>
+              <td class="p-3 font-semibold text-white">هيرميس للوساطة (EFG Hermes)</td>
+              <td class="p-3 tabular-nums font-mono">118.26</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">8.6%</td>
+              <td class="p-3 tabular-nums font-mono">87,600 ج</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع من قوائم الأسعار الرسمية (نطاق السوق 1.5 إلى 4.5 في الألف)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">3</td>
+              <td class="p-3 font-semibold text-white">مباشر لتداول الأوراق المالية (Mubasher)</td>
+              <td class="p-3 tabular-nums font-mono">95.27</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">7%</td>
+              <td class="p-3 tabular-nums font-mono">50,142 ج</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع من قوائم الأسعار الرسمية (نطاق السوق 1.5 إلى 4.5 في الألف)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">4</td>
+              <td class="p-3 font-semibold text-white">الأهلي فاروس (Al Ahly Pharos)</td>
+              <td class="p-3 tabular-nums font-mono">81.58</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">6%</td>
+              <td class="p-3 tabular-nums font-mono">211,178 ج</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع من قوائم الأسعار الرسمية (أعلى متوسط قيمة عملية: 211,178 ج)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">5</td>
+              <td class="p-3 font-semibold text-white">أسباير لتداول الأوراق المالية (Aspire)</td>
+              <td class="p-3 tabular-nums font-mono">79.13</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">5.8%</td>
+              <td class="p-3 tabular-nums font-mono">64,861 ج</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع من قوائم الأسعار الرسمية (متوسط العملية 64,861 ج)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">6</td>
+              <td class="p-3 font-semibold text-white">أسطول لتداول الأوراق المالية (Ostool)</td>
+              <td class="p-3 tabular-nums font-mono">75.70</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">5.5%</td>
+              <td class="p-3 tabular-nums font-mono">غير متاح</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">7</td>
+              <td class="p-3 font-semibold text-white">بلتون لتداول الأوراق المالية (Beltone)</td>
+              <td class="p-3 tabular-nums font-mono">74.59</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">5.5%</td>
+              <td class="p-3 tabular-nums font-mono">غير متاح</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">8</td>
+              <td class="p-3 font-semibold text-white">كايرو كابيتال (Cairo Capital)</td>
+              <td class="p-3 tabular-nums font-mono">70.66</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">5.2%</td>
+              <td class="p-3 tabular-nums font-mono">غير متاح</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">9</td>
+              <td class="p-3 font-semibold text-white">التجاري الدولي للسمسرة (CI Capital)</td>
+              <td class="p-3 tabular-nums font-mono">68.77</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">5%</td>
+              <td class="p-3 tabular-nums font-mono">غير متاح</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)</td>
+            </tr>
+            <tr class="hover:bg-white/[0.02]">
+              <td class="p-3 tabular-nums font-semibold text-emerald-400 font-mono">10</td>
+              <td class="p-3 font-semibold text-white">أرقام لتداول الأوراق المالية (Arqaam)</td>
+              <td class="p-3 tabular-nums font-mono">64.31</td>
+              <td class="p-3 tabular-nums font-mono text-amber-300">4.7%</td>
+              <td class="p-3 tabular-nums font-mono">غير متاح</td>
+              <td class="p-3 text-xs text-slate-300">تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 10 Safety Pledges -->
+  <section id="charter" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+    <h2 class="text-2xl font-bold mb-2 text-white">ميثاق الأمان العلني (10 تعهدات ملزمة وغير قابلة للمساومة)</h2>
+    <p class="text-sm text-slate-400 mb-6">التزام مؤسسي بحماية رأس المال، حظر تضارب المصالح، وسجل أداء معلن بشفافية تامة.</p>
+    <div class="grid sm:grid-cols-2 gap-4">
+      
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">1.</span> لا نحتفظ بأموالك أبداً</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا نحتفظ بأموالك ولا نطلب كلمات مرور حسابات الوساطة، وأي جهة تطلب ذلك باسمنا فهي منتحلة.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">2.</span> لا إعلانات ولا توصيات مدفوعة</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا نقبل مقابلاً من أي شركة لترويج سهمها، ولا نعرض إعلانات مضللة.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">3.</span> منع تضارب المصالح</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا يتداول فريق بورصجي في الأسهم التي يوصي بها الوكلاء.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">4.</span> سجل أداء ودرجة ثقة لكل توصية</div>
+          <p class="text-xs text-slate-300 leading-relaxed">كل توصية لها سجل أداء علني مختوم زمنياً ودرجة ثقة ومدى اتفاق الوكلاء.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">5.</span> ننشر أخطاءنا كما ننشر نجاحنا</div>
+          <p class="text-xs text-slate-300 leading-relaxed">سجل الأخطاء العلني يعرض التوصيات الخاطئة وأسبابها بشفافية كاملة.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">6.</span> لا وعود بربح ولا عبارات ضمان</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا نعدك بربح ولا نستخدم عبارات مثل «آمن 100%» أو «بلا خسارة».</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">7.</span> لا نبيع بياناتك</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا نبيع بيانات المستخدمين ولا نشاركها مع شركات الوساطة دون موافقة صريحة.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">8.</span> نحترم حد الخسارة الذي تحدده أنت</div>
+          <p class="text-xs text-slate-300 leading-relaxed">عند بلوغ أقصى خسارة يومية/أسبوعية يتوقف المرافق عن إصدار إشارات جديدة ويقترح استراحة.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">9.</span> لا حيل تحفيزية للإفراط في التداول</div>
+          <p class="text-xs text-slate-300 leading-relaxed">لا إشعارات ضغط، ولا احتفالات تدفع لمزيد من التداول، ولا تصنيفات تكافئ المخاطرة العالية.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-[#0A1611] border border-white/10">
+          <div class="font-bold text-white text-sm mb-1"><span class="text-emerald-400 tabular-nums font-mono font-bold">10.</span> نحذف بياناتك متى طلبت</div>
+          <p class="text-xs text-slate-300 leading-relaxed">حذف كل بياناتك بضغطة واحدة، مع دعم وضع الحساب المجهول (اسم مستعار).</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Institutional Footer -->
+  <footer class="border-t border-white/10 py-10 mt-12 text-center text-xs text-slate-400 bg-[#040907]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-white">بورصجي</span>
+        <span class="text-emerald-400 font-mono">borsagy.si</span>
+        <span>· جميع الحقوق محفوظة © 2026</span>
+      </div>
+      <p class="text-slate-400 text-[11px] max-w-xl text-center sm:text-left leading-relaxed">
+        منصة المرافق الذكي للمضاربين في البورصة المصرية (EGX). لا تمثل هذه المنصة نصيحة مالية أو استثمارية ملزمة، وتخضع القرارات لمسؤولية المتداول الفرد.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Interactive Agent Modal for Standalone Export -->
+  <div id="agent-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-[#08120E] border border-white/20 rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 id="modal-agent-title" class="text-lg font-bold text-white"></h3>
+        <button onclick="closeAgentModal()" class="text-slate-400 hover:text-white px-3 py-1 bg-white/10 rounded-lg text-xs">إغلاق</button>
+      </div>
+      <p id="modal-agent-mission" class="text-sm text-slate-200 leading-relaxed"></p>
+      <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-xs text-emerald-200 space-y-1">
+        <strong class="text-emerald-400 block font-bold">التحليل التنافسي المباشر وحائط الصد (Defensive Moat):</strong>
+        <p id="modal-agent-comp" class="leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <script id="site-config-data" type="application/json">{
+  "brand": {
+    "nameAr": "بورصجي",
+    "nameEn": "borsagy.si",
+    "domainPrimary": "borsagy.si",
+    "domainAlt": "borsgai.si",
+    "editionBadge": "الإصدار 2 · دراسة شاملة وملحق السمسرة · أكتوبر 2026",
+    "siMeaning": "يُقرأ SI = Superintelligence (الذكاء الفائق كرؤية مستقبلية)",
+    "siLegalNote": "منصة مبنية على أحدث نماذج الذكاء الاصطناعي المتقدم، ونعتمد على الذكاء الفائق في تطوير وكلائنا كلما توفر — مع تسجيل borsagy.com و borsagy.com.eg لحماية العلامة.",
+    "primaryColor": "#10B981",
+    "accentColor": "#F59E0B",
+    "bgColor": "#060D0A",
+    "logoVariant": "neural-prism",
+    "logoShowDomain": true,
+    "logoTagline": "المرافق الذكي للمضاربين في البورصة المصرية",
+    "scene3DMode": "companion-core",
+    "scene3DSpeed": 1,
+    "scene3DWireframe": false
+  },
+  "hero": {
+    "kicker": "منصة المرافق الذكي للمضاربين في البورصة المصرية (EGX)",
+    "headline": "المرافق الذي يساعدك على قرارات أفضل وخسارة أقل",
+    "highlightWord": "وخسارة أقل",
+    "subheadline": "بورصجي (borsagy.si) منصة تجمع بيانات كل الشركات المقيدة في البورصة المصرية وتقيّم جودة الأسهم، لكن قلب المشروع هو المرافق الذكي: منظومة من 84 وكيل ذكاء اصطناعي ترافقك من اختيار السهم وشركة السمسرة حتى الخروج الآمن.",
+    "legalFramingTitle": "تنبيه في الصياغة وميثاق الصدق",
+    "legalFramingText": "لا توجد أداة تضمن النجاح في المضاربة. لذلك تُصاغ رسالة المنصة على أنها «المرافق الذي يساعدك على قرارات أفضل وخسارة أقل»، لا «الحل الوحيد للنجاح». هذا أصدق، وأسلم قانونياً، وأبقى لثقة المستخدم.",
+    "primaryCtaText": "جرّب المرافق الذكي التفاعلي",
+    "secondaryCtaText": "تحميل حزمة الموقع الكاملة (ZIP)",
+    "stats": [
+      {
+        "label": "وكيل ذكاء اصطناعي متخصص",
+        "value": "84",
+        "context": "منها 8 وكلاء في النواة التأسيسية للإطلاق"
+      },
+      {
+        "label": "حجم تداول أكبر 10 شركات سمسرة",
+        "value": "1.057T",
+        "context": "تريليون جنيه في الربع الثالث 2026 (EGX)"
+      },
+      {
+        "label": "تعهدات في ميثاق الأمان العلني",
+        "value": "10",
+        "context": "حماية رأس المال والخصوصية والحياد التام"
+      },
+      {
+        "label": "مؤشرات البورصة المغطاة",
+        "value": "EGX30/70/100",
+        "context": "تحليل أساسي، فني، سيولة، ومخاطر من 100"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "p1",
+      "title": "تشتت المضارب الفرد بين المنصات والجروبات",
+      "description": "المضارب الفرد يتنقل بين تطبيق الوساطة وموقع الأخبار وتحليلات متفرقة وجروبات توصيات بلا مصداقية.",
+      "type": "problem"
+    },
+    {
+      "id": "p2",
+      "title": "توصيات بلا سجل أداء ولا مراعاة للمخاطر",
+      "description": "التوصيات المنتشرة على تليجرام وواتساب بلا سجل أداء علني موثق، ولا تراعي حجم محفظة أو مخاطر كل شخص.",
+      "type": "problem"
+    },
+    {
+      "id": "p3",
+      "title": "غياب المرافقة بعد قرار الدخول",
+      "description": "أغلب المنصات تعرض بيانات فقط، ولا ترافق المضارب بعد قرار الدخول، وهنا تحدث أغلب الأخطاء (التأخر في الخروج، ترك الخسارة تكبر).",
+      "type": "problem"
+    },
+    {
+      "id": "p4",
+      "title": "الفرصة: نمو المستثمرين الأفراد والهوية المصرية",
+      "description": "نمو المستثمرين الأفراد وانتشار تطبيقات التداول، والحاجة الماسة لمحتوى ومرافق عربي بلهجة المستخدم المصرية يفهم تفاصيل السوق.",
+      "type": "opportunity"
+    }
+  ],
+  "segments": [
+    {
+      "id": "s1",
+      "segment": "المبتدئ ومن يريد الانضباط",
+      "need": "تعليم وحماية صارمة من الخسائر الكبيرة",
+      "companionRole": "وضع المدير: خطة جاهزة متكاملة (دخول، حجم، وقف خسارة، أهداف) وحدود صارمة للمخاطرة يوافق عليها المضارب.",
+      "modeTag": "وضع المدير"
+    },
+    {
+      "id": "s2",
+      "segment": "المضارب النشط والخبير",
+      "need": "سرعة وتنبيهات لحظية ذكية",
+      "companionRole": "وضع الناصح: إشارات سريعة (إشارة + سعر + سبب في 3 جمل) والقرار النهائي للمضارب مع رقابة المخاطر.",
+      "modeTag": "وضع الناصح"
+    },
+    {
+      "id": "s3",
+      "segment": "المستثمر متوسط الأجل",
+      "need": "جودة السهم وتوزيع المحفظة ومقارنة البدائل",
+      "companionRole": "الوضع الهجين: يبدأ في وضع المدير ومع إثبات الالتزام ينتقل للناصح، مع خطة عامة وحرية في التفاصيل وعودة تلقائية للمدير بعد سلسلة خسائر.",
+      "modeTag": "الوضع الهجين"
+    }
+  ],
+  "journeySteps": [
+    {
+      "id": "j1",
+      "stage": "1. قبل الدخول",
+      "action": "يرشح السهم المناسب لمخاطرك وحجم محفظتك ويشرح السبب في 3 جمل مع حجة محامي الشيطان.",
+      "exampleAr": "يربط السهم بملف المضارب ويختبر السيولة (كم يوماً يلزم للخروج من كميتك؟)."
+    },
+    {
+      "id": "j2",
+      "stage": "2. لحظة الدخول",
+      "action": "يحدد سعر الشراء المقترح، حجم الصفقة الذكي، وقف الخسارة الإلزامي، والهدف المتوقع.",
+      "exampleAr": "يجهز الأمر ويسجل «عقد الصفقة» وحالة المزاج قبل التنفيذ في تطبيق الوساطة."
+    },
+    {
+      "id": "j3",
+      "stage": "3. أثناء الصفقة",
+      "action": "متابعة لحظية، وتنبيه فوري عند تغير الظروف أو اقتراب الهدف أو رفع وقف الخسارة المتحرك.",
+      "exampleAr": "يرصد أي إفصاح جديد أو حركة كبار المساهمين تؤثر على فرضية الدخول."
+    },
+    {
+      "id": "j4",
+      "stage": "4. الخروج",
+      "action": "إشارة واضحة «بيع الآن» بسعر محدد مع السبب لحماية الربح أو إيقاف الخسارة دون تردد.",
+      "exampleAr": "يمنع التردد أو الطمع ويحسب الصافي الحقيقي بعد العمولات والرسوم والضرائب."
+    },
+    {
+      "id": "j5",
+      "stage": "5. بعد الصفقة",
+      "action": "تقييم القرار وتعلّم أسلوب المضارب وأخطائه المتكررة عبر «الصندوق الأسود للصفقة».",
+      "exampleAr": "يقارن أداءك الفعلي بما كنت ستربحه لو التزمت بخطتك (الفجوة السلوكية وتكلفة التسرع بالجنيه)."
+    }
+  ],
+  "companionMessages": [
+    {
+      "id": "m1",
+      "situation": "خطة جاهزة قبل الدخول",
+      "mode": "وضع المدير",
+      "message": "جهزت لك خطة على سهم (س): دخول عند 10.00، وقف خسارة 9.50، هدف أول 11.00. حجم الصفقة 5% من محفظتك بس. توافق؟",
+      "stockCode": "COMI.CA",
+      "entryPrice": "10.00 ج.م",
+      "stopLoss": "9.50 ج.م",
+      "targetPrice": "11.00 ج.م",
+      "portfolioPct": "5%"
+    },
+    {
+      "id": "m2",
+      "situation": "إشارة فرصة فنية وسيولة",
+      "mode": "وضع الناصح",
+      "message": "السهم قرّب من منطقة دعم والسيولة كويسة. لو دخلت، أنسب سعر قريب من 10.00. القرار ليك.",
+      "stockCode": "FWRY.CA",
+      "entryPrice": "10.00 ج.م",
+      "stopLoss": "9.60 ج.م",
+      "targetPrice": "10.90 ج.م",
+      "portfolioPct": "7%"
+    },
+    {
+      "id": "m3",
+      "situation": "حماية الأرباح أثناء الصفقة",
+      "mode": "أثناء الصفقة",
+      "message": "السهم وصل 10.80، قريب من هدفك. تحب نرفع وقف الخسارة لـ 10.20 نأمّن بيه جزء من المكسب؟",
+      "stockCode": "SWDY.CA",
+      "entryPrice": "10.00 ج.م",
+      "stopLoss": "10.20 ج.م (مُحدّث)",
+      "targetPrice": "11.00 ج.م",
+      "portfolioPct": "5%"
+    },
+    {
+      "id": "m4",
+      "situation": "تنفيذ وقف الخسارة بانضباط",
+      "mode": "خروج آمن",
+      "message": "وصل لوقف الخسارة اللي اتفقنا عليه عند 9.50. الخطة بتقول نخرج. الخسارة المحسوبة أقل من حدك الأقصى.",
+      "stockCode": "TMGH.CA",
+      "entryPrice": "10.00 ج.م",
+      "stopLoss": "9.50 ج.م",
+      "targetPrice": "خروج فوري",
+      "portfolioPct": "5%"
+    },
+    {
+      "id": "m5",
+      "situation": "حماية من البيع بذعر أو الاندفاع",
+      "mode": "حماية سلوكية",
+      "message": "لاحظت إنك عايز تبيع كل حاجة بعد نزول حاد. قبل ما تنفذ: ده كان في خطتك؟ عايز نراجع الأسباب سوا؟",
+      "stockCode": "HRHO.CA",
+      "entryPrice": "مراجعة الخطة",
+      "stopLoss": "تهدئة 5 دقائق",
+      "targetPrice": "قرار واعي",
+      "portfolioPct": "حماية المحفظة"
+    },
+    {
+      "id": "m6",
+      "situation": "رفض قاطع لتركز المخاطر (حق اعتراض وكيل المخاطر)",
+      "mode": "رفض لحماية رأس المال",
+      "message": "الصفقة دي هتخلّي أكتر من 40% من محفظتك في سهم واحد، وده أعلى من حدك. مقدرش أوصي بيها بالحجم ده.",
+      "stockCode": "ABUK.CA",
+      "entryPrice": "مرفوض بالحجم الحالي",
+      "stopLoss": "سقف التركز 15%",
+      "targetPrice": "تخفيض الحجم",
+      "portfolioPct": "40% (مرفوض)"
+    }
+  ],
+  "brokersQ3": [
+    {
+      "rank": 1,
+      "name": "ثاندر (Thndr)",
+      "turnoverBillionEgp": 328.89,
+      "marketSharePct": 24,
+      "avgTradeValueEgp": 24007,
+      "commissionNote": "0.1% من قيمة الأمر + حد أدنى 2 ج (ومع اشتراك ثاندر تريدر: 50 صفقة شهرياً بلا عمولة تُرد في المحفظة)",
+      "bestFor": "صغار المتعاملين والمضارب النشط بعمليات كثيرة صغيرة ومتوسطة القيمة"
+    },
+    {
+      "rank": 2,
+      "name": "هيرميس للوساطة (EFG Hermes)",
+      "turnoverBillionEgp": 118.26,
+      "marketSharePct": 8.6,
+      "avgTradeValueEgp": 87600,
+      "commissionNote": "تُجمع من قوائم الأسعار الرسمية (نطاق السوق 1.5 إلى 4.5 في الألف)",
+      "bestFor": "المحافظ المتوسطة والكبيرة والباحثين عن تغطية بحثية مؤسسية عميقة"
+    },
+    {
+      "rank": 3,
+      "name": "مباشر لتداول الأوراق المالية (Mubasher)",
+      "turnoverBillionEgp": 95.27,
+      "marketSharePct": 7,
+      "avgTradeValueEgp": 50142,
+      "commissionNote": "تُجمع من قوائم الأسعار الرسمية (نطاق السوق 1.5 إلى 4.5 في الألف)",
+      "bestFor": "المضارب النشط الباحث عن شاشات أسعار متقدمة وأدوات بيانات مباشرة"
+    },
+    {
+      "rank": 4,
+      "name": "الأهلي فاروس (Al Ahly Pharos)",
+      "turnoverBillionEgp": 81.58,
+      "marketSharePct": 6,
+      "avgTradeValueEgp": 211178,
+      "commissionNote": "تُجمع من قوائم الأسعار الرسمية (أعلى متوسط قيمة عملية: 211,178 ج)",
+      "bestFor": "العمليات الكبيرة والمؤسسية والمستثمرين ذوي الملاءة العالية"
+    },
+    {
+      "rank": 5,
+      "name": "أسباير لتداول الأوراق المالية (Aspire)",
+      "turnoverBillionEgp": 79.13,
+      "marketSharePct": 5.8,
+      "avgTradeValueEgp": 64861,
+      "commissionNote": "تُجمع من قوائم الأسعار الرسمية (متوسط العملية 64,861 ج)",
+      "bestFor": "المتداولين الأفراد النشطين والمحافظ المتوسطة"
+    },
+    {
+      "rank": 6,
+      "name": "أسطول لتداول الأوراق المالية (Ostool)",
+      "turnoverBillionEgp": 75.7,
+      "marketSharePct": 5.5,
+      "avgTradeValueEgp": null,
+      "commissionNote": "تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)",
+      "bestFor": "التداول النشط والخدمات البحثية المحلية في السوق المصري"
+    },
+    {
+      "rank": 7,
+      "name": "بلتون لتداول الأوراق المالية (Beltone)",
+      "turnoverBillionEgp": 74.59,
+      "marketSharePct": 5.5,
+      "avgTradeValueEgp": null,
+      "commissionNote": "تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)",
+      "bestFor": "المستثمرين الأفراد والمؤسسات الباحثين عن منظومة مالية متكاملة"
+    },
+    {
+      "rank": 8,
+      "name": "كايرو كابيتال (Cairo Capital)",
+      "turnoverBillionEgp": 70.66,
+      "marketSharePct": 5.2,
+      "avgTradeValueEgp": null,
+      "commissionNote": "تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)",
+      "bestFor": "التداول في السوق الرئيسي وسوق الشركات الصغيرة والمتوسطة"
+    },
+    {
+      "rank": 9,
+      "name": "التجاري الدولي للسمسرة (CI Capital)",
+      "turnoverBillionEgp": 68.77,
+      "marketSharePct": 5,
+      "avgTradeValueEgp": null,
+      "commissionNote": "تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)",
+      "bestFor": "الاستثمار المؤسسي والمحافظ ذات التوجه البحثي والبنكي"
+    },
+    {
+      "rank": 10,
+      "name": "أرقام لتداول الأوراق المالية (Arqaam)",
+      "turnoverBillionEgp": 64.31,
+      "marketSharePct": 4.7,
+      "avgTradeValueEgp": null,
+      "commissionNote": "تُجمع رسمياً (TO COLLECT في قالب brokers_q3_2026.csv)",
+      "bestFor": "التنفيذ المؤسسي والمتخصص عبر الأسواق الإقليمية والمصرية"
+    }
+  ],
+  "uniqueFeatures": [
+    {
+      "id": "uf1",
+      "title": "1. مقارنة المحفظة بالتضخم والشهادات والدولار والذهب",
+      "whyUniqueInEgypt": "يقارن أداء المحفظة الفعلي ببدائل المصري الحقيقية (شهادات الادخار، أذون الخزانة، الدولار، الذهب، العقار) في لوحة واحدة.",
+      "difficulty": "متوسطة",
+      "category": "الأفكار الخمس الأكثر تفرداً",
+      "isTopFive": true
+    },
+    {
+      "id": "uf2",
+      "title": "2. الصافي بعد التكاليف بالجنيه",
+      "whyUniqueInEgypt": "كل صفقة تُحسب بعد العمولات ورسوم البورصة والرقابة والمقاصة والضرائب المطبقة، فيرى المضارب الربح الحقيقي لا الظاهر.",
+      "difficulty": "متوسطة",
+      "category": "الأفكار الخمس الأكثر تفرداً",
+      "isTopFive": true
+    },
+    {
+      "id": "uf3",
+      "title": "3. إشارة «لا صفقة اليوم» ومؤشر الانضباط",
+      "whyUniqueInEgypt": "أحياناً أفضل توصية هي الانتظار. لا يقيس المضارب بالربح فقط بل بالتزامه بخطته ووقف خسارته — هوية المنتج «الأخلاقي».",
+      "difficulty": "منخفضة",
+      "category": "الأفكار الخمس الأكثر تفرداً",
+      "isTopFive": true
+    },
+    {
+      "id": "uf4",
+      "title": "4. المرافق الصوتي بالعامية على واتساب",
+      "whyUniqueInEgypt": "رسائل صوتية ونصية باللهجة المصرية البسيطة على واتساب وتليجرام؛ أسرع قناة للوصول لمستخدمين كثر.",
+      "difficulty": "متوسطة",
+      "category": "الأفكار الخمس الأكثر تفرداً",
+      "isTopFive": true
+    },
+    {
+      "id": "uf5",
+      "title": "5. قراءة كشف الحساب بلا ربط تقني",
+      "whyUniqueInEgypt": "يرفع المضارب كشف شركة الوساطة (ملف أو صورة) فيحلل الوكيل محفظته الفعلية من اليوم الأول مع تشفير كامل وخصوصية.",
+      "difficulty": "متوسطة",
+      "category": "الأفكار الخمس الأكثر تفرداً",
+      "isTopFive": true
+    },
+    {
+      "id": "uf6",
+      "title": "أثر قرار البنك المركزي والتقويم المصري الذكي",
+      "whyUniqueInEgypt": "قبل اجتماعات لجنة السياسة النقدية يشرح المرافق أثر الفائدة المتوقع على كل قطاع وعلى محفظتك، مع مواعيد النتائج والجمعيات.",
+      "difficulty": "متوسطة",
+      "category": "السوق والاقتصاد المصري",
+      "isTopFive": false
+    },
+    {
+      "id": "uf7",
+      "title": "فاحص التوصيات المتداولة وكاشف الحركات المشبوهة",
+      "whyUniqueInEgypt": "يلصق المضارب توصية وصلته في جروب، فيفحصها الوكيل: هل لها أساس؟ ما سيولة السهم؟ هل حركة الحجم غير طبيعية؟ (تقييم مخاطر لا اتهام).",
+      "difficulty": "عالية",
+      "category": "حماية المضارب",
+      "isTopFive": false
+    },
+    {
+      "id": "uf8",
+      "title": "الفجوة السلوكية وتكلفة التسرع بالجنيه",
+      "whyUniqueInEgypt": "تقارن ما ربحته فعلاً بما كنت ستربحه لو التزمت بخطتك حرفياً، وتحسب كم كلّفك كسر قواعدك بالجنيه المصري.",
+      "difficulty": "متوسطة",
+      "category": "تدريب العقل وتحسين القرار",
+      "isTopFive": false
+    },
+    {
+      "id": "uf9",
+      "title": "محامي الشيطان وعقد الصفقة",
+      "whyUniqueInEgypt": "وكيل مهمته الوحيدة عرض أقوى حجة ضد كل توصية قبل الدخول، مع كتابة سؤال «لماذا قد أخسر؟» لتذكير المضارب بعقده.",
+      "difficulty": "منخفضة",
+      "category": "تدريب العقل وتحسين القرار",
+      "isTopFive": false
+    },
+    {
+      "id": "uf10",
+      "title": "درجة فخ السهم (0 إلى 100) وختم الشفافية",
+      "whyUniqueInEgypt": "تحذر من الأسهم التي يسهل دخولها ويصعب الخروج منها، مع ختم زمني مشفر لكل توصية يثبت عدم تعديل التاريخ.",
+      "difficulty": "متوسطة",
+      "category": "أفكار مستخلصة ومكيّفة لـ EGX",
+      "isTopFive": false
+    },
+    {
+      "id": "uf11",
+      "title": "حكم شرعي مفسَّر وحاسبة التطهير والزكاة",
+      "whyUniqueInEgypt": "لا يكتفي بـ«متوافق/غير متوافق» بل يعرض السبب (النشاط، نسبة الدين، الإيراد غير المباح) ومواضع اختلاف المعايير وحاسبة تطهير الأرباح.",
+      "difficulty": "متوسطة",
+      "category": "التطبيقات الإسلامية المعمقة",
+      "isTopFive": false
+    },
+    {
+      "id": "uf12",
+      "title": "وكيل «اختر شركتك» (رقم 83) ومراقب الأسعار (رقم 84)",
+      "whyUniqueInEgypt": "يحسب التكلفة السنوية المتوقعة بالجنيه عند كل شركة سمسرة ويرشح أنسب 3 شركات لنمط تداولك بحياد كامل.",
+      "difficulty": "متوسطة",
+      "category": "ملحق شركات السمسرة 2026",
+      "isTopFive": false
+    }
+  ],
+  "agents": [
+    {
+      "id": 1,
+      "name": "وكيل جودة البيانات",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يفحص الأسعار الواردة، يكتشف الفجوات والقيم الشاذة، ويوقف أي إشارة إذا كانت البيانات مشكوكاً فيها.",
+      "isCore": true
+    },
+    {
+      "id": 2,
+      "name": "وكيل التحليل الأساسي",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يقرأ القوائم المالية ويحسب النسب (P/E, P/B, ROE، الديون، نمو الأرباح، التوزيعات) ويقارن بالقطاع.",
+      "isCore": true
+    },
+    {
+      "id": 3,
+      "name": "وكيل التحليل الفني",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "المؤشرات (RSI, MACD) والأنماط والدعم والمقاومة والاتجاه على أطر زمنية متعددة.",
+      "isCore": true
+    },
+    {
+      "id": 4,
+      "name": "وكيل السيولة",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "حجم التداول، سهولة الخروج، اتساع الفرق بين العرض والطلب، أثر حدود التذبذب اليومي.",
+      "isCore": true
+    },
+    {
+      "id": 5,
+      "name": "وكيل الأخبار والإفصاحات",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يقرأ الإفصاحات والأخبار بالعربية ويلخصها ويحدد أثرها المحتمل على السهم.",
+      "isCore": false
+    },
+    {
+      "id": 6,
+      "name": "وكيل المشاعر",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يقيس نبرة الأخبار والتعليقات العامة تجاه السهم والقطاع.",
+      "isCore": false
+    },
+    {
+      "id": 7,
+      "name": "وكيل الاقتصاد الكلي والقطاعات",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يتتبع سعر الصرف والفائدة والتضخم وأثرها على كل قطاع في البورصة المصرية.",
+      "isCore": false
+    },
+    {
+      "id": 8,
+      "name": "وكيل التدفقات",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "يتتبع نشاط المؤسسات والأجانب والعرب والأفراد إن توفرت البيانات.",
+      "isCore": false
+    },
+    {
+      "id": 9,
+      "name": "وكيل أحداث الشركات",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "التوزيعات، زيادات رأس المال، الجمعيات العمومية، التواريخ المهمة.",
+      "isCore": false
+    },
+    {
+      "id": 10,
+      "name": "وكيل الشريعة الأساسي",
+      "categoryKey": "data",
+      "categoryLabel": "أ. البيانات والتحليل",
+      "mission": "فلتر الأسهم المتوافقة مع الشريعة وفق معيار محدد ومعلن.",
+      "isCore": false
+    },
+    {
+      "id": 11,
+      "name": "وكيل الماسح (Screener)",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يفلتر كل أسهم EGX ويرشح الأنسب لملف كل مضارب.",
+      "isCore": false
+    },
+    {
+      "id": 12,
+      "name": "وكيل نقاط الدخول والخروج",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يحدد سعر الشراء والبيع المقترح ووقف الخسارة والأهداف.",
+      "isCore": false
+    },
+    {
+      "id": 13,
+      "name": "وكيل المخاطر وحجم الصفقة",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يحدد نسبة الصفقة من المحفظة وأقصى خسارة مقبولة، وله حق الاعتراض (Veto) على أي إشارة.",
+      "isCore": true
+    },
+    {
+      "id": 14,
+      "name": "وكيل بناء المحفظة",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "توزيع الأموال على الأسهم والقطاعات وتجنب التركز الزائد.",
+      "isCore": false
+    },
+    {
+      "id": 15,
+      "name": "وكيل الاختبار التاريخي",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يختبر الاستراتيجية على بيانات سابقة (آخر سنتين) قبل إصدار الإشارة.",
+      "isCore": false
+    },
+    {
+      "id": 16,
+      "name": "وكيل الضغط والمحاكاة",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يختبر المحفظة ضد سيناريوهات مصرية (هبوط السوق، تغير الدولار أو الفائدة).",
+      "isCore": false
+    },
+    {
+      "id": 17,
+      "name": "وكيل المنسّق (Coordinator)",
+      "categoryKey": "decision",
+      "categoryLabel": "ب. وكلاء القرار",
+      "mission": "يجمع آراء الوكلاء، يحل التعارض بينها، ويخرج بدرجة جودة موحدة من 100 وتوصية مفسَّرة.",
+      "isCore": true
+    },
+    {
+      "id": 18,
+      "name": "وكيل التعارف",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "يدير الاستمارة ويصنف المضارب (خبرته، هدفه، تحمله للخسارة، حجم محفظته).",
+      "isCore": false
+    },
+    {
+      "id": 19,
+      "name": "وكيل مطابقة التريدر",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "يختار شخصية التداول المناسبة حسب القطاع وحجم المحفظة والمخاطرة.",
+      "isCore": false
+    },
+    {
+      "id": 20,
+      "name": "وكيل المرافق الذكي",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "الوكيل المحوري الذي يحادث المضارب ويرافقه في كل صفقة بوضعي الناصح والمدير.",
+      "isCore": true
+    },
+    {
+      "id": 21,
+      "name": "وكيل السلوك والانضباط",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "يرصد أخطاء المضارب المتكررة ويتدخل عند الاندفاع أو مخالفة الخطة.",
+      "isCore": false
+    },
+    {
+      "id": 22,
+      "name": "وكيل التعليم",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "يشرح المصطلحات والقرارات بـ«اشرح لي ببساطة» ويبني مسار تعلم للمبتدئ.",
+      "isCore": false
+    },
+    {
+      "id": 23,
+      "name": "وكيل التقارير",
+      "categoryKey": "interaction",
+      "categoryLabel": "ج. التفاعل مع المضارب",
+      "mission": "يصدر تقريراً أسبوعياً/شهرياً عن أداء المحفظة والتزام المضارب والدروس المستفادة.",
+      "isCore": false
+    },
+    {
+      "id": 24,
+      "name": "وكيل الامتثال",
+      "categoryKey": "governance",
+      "categoryLabel": "د. الحوكمة والثقة",
+      "mission": "يمنع عبارات الضمان، يضيف إخلاء المسؤولية، ويفحص كل رسالة قبل إرسالها.",
+      "isCore": true
+    },
+    {
+      "id": 25,
+      "name": "وكيل سجل الأداء",
+      "categoryKey": "governance",
+      "categoryLabel": "د. الحوكمة والثقة",
+      "mission": "يختم كل توصية بوقتها وسعرها ويقيس نتيجتها لاحقاً بلا تعديل.",
+      "isCore": false
+    },
+    {
+      "id": 26,
+      "name": "وكيل المراقب (ضمان الجودة)",
+      "categoryKey": "governance",
+      "categoryLabel": "د. الحوكمة والثقة",
+      "mission": "يكتشف التناقض بين الوكلاء والأرقام غير المنطقية و«الهلوسة» قبل وصول المخرجات للمستخدم.",
+      "isCore": false
+    },
+    {
+      "id": 27,
+      "name": "وكيل الدعم والمجتمع",
+      "categoryKey": "governance",
+      "categoryLabel": "د. الحوكمة والثقة",
+      "mission": "يرد على الاستفسارات ويراقب المجتمع ضد التضليل والترويج لأسهم بعينها.",
+      "isCore": false
+    },
+    {
+      "id": 28,
+      "name": "وكيل التكاليف والصافي",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يحسب العمولات والرسوم والضرائب ويعرض الربح الصافي الحقيقي لكل صفقة.",
+      "isCore": false
+    },
+    {
+      "id": 29,
+      "name": "وكيل مقارنة الأصول والتضخم",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يقارن أداء المحفظة بالتضخم والشهادات وأذون الخزانة والدولار والذهب.",
+      "isCore": false
+    },
+    {
+      "id": 30,
+      "name": "وكيل التقويم والسياسة النقدية",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يتتبع الإجازات ومواعيد النتائج والجمعيات وقرارات الفائدة ويشرح أثرها.",
+      "isCore": false
+    },
+    {
+      "id": 31,
+      "name": "وكيل الطروحات والاستحواذات",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يتابع الطروحات الجديدة وزيادات رأس المال وعروض الشراء وأثرها على المساهم.",
+      "isCore": false
+    },
+    {
+      "id": 32,
+      "name": "وكيل فاحص التوصيات والشائعات",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يقيّم مخاطر توصية متداولة (سيولة، حجم غير طبيعي، غياب الأساس) دون اتهام أحد.",
+      "isCore": false
+    },
+    {
+      "id": 33,
+      "name": "وكيل كاشف الحركات المشبوهة",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يرصد الارتفاعات الحادة بلا خبر ويحذر قبل الدخول في سهم قد يكون مدفوعاً.",
+      "isCore": false
+    },
+    {
+      "id": 34,
+      "name": "وكيل قارئ كشف الوساطة",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يقرأ كشف حساب المضارب (ملف أو صورة) ويحلل محفظته الفعلية دون ربط تقني معقد.",
+      "isCore": false
+    },
+    {
+      "id": 35,
+      "name": "وكيل الصندوق الأسود",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "تحليل ما بعد الصفقة: هل السبب السوق أم تحليل خاطئ أم تنفيذ غير منضبط أم حظ؟",
+      "isCore": false
+    },
+    {
+      "id": 36,
+      "name": "وكيل المحاكاة والمسابقات",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يدير المحافظ التجريبية والتصنيفات الشهرية والتحديات مع الجامعات ونوادي الاستثمار.",
+      "isCore": false
+    },
+    {
+      "id": 37,
+      "name": "وكيل الصوت واللهجة المصرية",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يحوّل رسائل المرافق إلى صوت بلهجة مصرية ويفهم الرسائل الصوتية للمضارب على واتساب.",
+      "isCore": false
+    },
+    {
+      "id": 38,
+      "name": "وكيل علاقات المستثمرين (B2B)",
+      "categoryKey": "egypt_unique",
+      "categoryLabel": "هـ. الأفكار الفريدة بمصر",
+      "mission": "يدير لوحة الشركات المقيدة ويراجع ما تنشره للمستثمرين قبل عرضه.",
+      "isCore": false
+    },
+    {
+      "id": 39,
+      "name": "وكيل حارس المحفظة",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يراقب حدود الخسارة الشخصية وسقف التركز ويوقف أي إشارة تخالفها.",
+      "isCore": false
+    },
+    {
+      "id": 40,
+      "name": "وكيل مكافحة الاحتيال",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يحلل الرسائل والعروض المشبوهة («ربح مضمون»، «ضعف فلوسك») ويحذر المضارب.",
+      "isCore": false
+    },
+    {
+      "id": 41,
+      "name": "وكيل وضع الأزمة",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يكتشف الهبوط الحاد والإيقاف ويفعّل بروتوكول الهدوء ويمنع الصفقات الاندفاعية.",
+      "isCore": false
+    },
+    {
+      "id": 42,
+      "name": "وكيل الرفاهية والانضباط النفسي",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يرصد الإفراط في التداول ويقترح الاستراحة (24 ساعة) ويدير المراقب الموثوق.",
+      "isCore": false
+    },
+    {
+      "id": 43,
+      "name": "وكيل الأمن والخصوصية",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يراقب الدخول المشبوه ويدير الموافقات والاسم المستعار وحذف البيانات بضغطة واحدة.",
+      "isCore": false
+    },
+    {
+      "id": 44,
+      "name": "وكيل الشفافية وتضارب المصالح",
+      "categoryKey": "safety",
+      "categoryLabel": "و. الأمان والثقة",
+      "mission": "يوثّق درجات الثقة وسجل الأخطاء العلني ويطبق سياسة عدم التعارض.",
+      "isCore": false
+    },
+    {
+      "id": 45,
+      "name": "وكيل محامي الشيطان",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يعرض أقوى حجة ضد كل توصية قبل الدخول فلا يرى المضارب وجهاً واحداً للصفقة.",
+      "isCore": false
+    },
+    {
+      "id": 46,
+      "name": "وكيل عقد الصفقة",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يسجل خطة المضارب وسؤال «لماذا قد أخسر؟» ويذكّره بها عند أي رغبة في الخروج عن الخطة.",
+      "isCore": false
+    },
+    {
+      "id": 47,
+      "name": "وكيل الفجوة السلوكية والمزاج",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يقارن الأداء الفعلي بالأداء لو الالتزام بالخطة ويربط المزاج (هادئ، متوتر، متحمس) بالنتائج.",
+      "isCore": false
+    },
+    {
+      "id": 48,
+      "name": "وكيل رخصة بورصجي",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يدير الاختبارات والمستويات وفتح الميزات المتقدمة بعد إثبات فهم المخاطر والالتزام.",
+      "isCore": false
+    },
+    {
+      "id": 49,
+      "name": "وكيل بطاقة هوية السهم",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يلخص الشركة في صفحة واحدة بالعامية: تعمل ماذا، من أين تكسب، من يملكها، وأكبر مخاطرها.",
+      "isCore": false
+    },
+    {
+      "id": 50,
+      "name": "وكيل فحص الصحة المحاسبية",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يرصد علامات تستدعي الفحص (ديون متضخمة، أرباح بلا نقد، تأخر إفصاحات) كعلامات تستحق السؤال.",
+      "isCore": false
+    },
+    {
+      "id": 51,
+      "name": "وكيل خريطة الملكية والعلاقات",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يبني خريطة الملكية (الشركات الأم والتابعة) ويتتبع حركة كبار المساهمين وأعضاء مجالس الإدارة.",
+      "isCore": false
+    },
+    {
+      "id": 52,
+      "name": "وكيل السوابق التاريخية",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يقارن الأحداث الحالية (رفع فائدة، تغير صرف) بأحداث مشابهة سابقة مع التنبيه أن الماضي لا يضمن المستقبل.",
+      "isCore": false
+    },
+    {
+      "id": 53,
+      "name": "وكيل كاشف التنويع الوهمي والارتباط",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يكتشف إن كانت أسهمك الخمسة تتحرك معاً (ارتباط عالٍ) ويقترح توزيعاً أفضل.",
+      "isCore": false
+    },
+    {
+      "id": 54,
+      "name": "وكيل ضبط التوقعات",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يحول الأهداف المالية للمضارب إلى احتمالات واقعية ويقول بصدق إن كان الهدف غير واقعي.",
+      "isCore": false
+    },
+    {
+      "id": 55,
+      "name": "وكيل مؤشر ازدحام الصفقة",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يقيس تكدس المستخدمين على سهم ما بشكل مجمّع ومجهول لحماية المضارب من السير مع القطيع.",
+      "isCore": false
+    },
+    {
+      "id": 56,
+      "name": "وكيل البديل الأنسب",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "ينصح بالاستثمار طويل الأجل أو صناديق المؤشرات أو عدم التداول الآن عندما يكون ذلك أنسب للمبتدئ.",
+      "isCore": false
+    },
+    {
+      "id": 57,
+      "name": "وكيل التنبيهات باللغة الطبيعية والملخصات",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يترجم شروط المضارب الطبيعية لتنبيهات تلقائية، ويدير ميزانية الإشعارات وساعات الهدوء وملخص الـ 3 دقائق.",
+      "isCore": false
+    },
+    {
+      "id": 58,
+      "name": "وكيل منشئ الاستراتيجيات (ابنِ وكيلك)",
+      "categoryKey": "advanced",
+      "categoryLabel": "ز. الأفكار المتقدمة",
+      "mission": "يحول قواعد المضارب المتقدم بلغة بسيطة بلا كود لاستراتيجية قابلة للاختبار التاريخي الإلزامي.",
+      "isCore": false
+    },
+    {
+      "id": 59,
+      "name": "وكيل سبب تحرك المحفظة (Digests)",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يشرح كل يوم لماذا تحركت محفظتك ويربطها بأسبابها (السهم، القطاع، السوق، الدولار، خبر).",
+      "isCore": false
+    },
+    {
+      "id": 60,
+      "name": "وكيل مراقب الفرضية",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يتابع فرضية المضارب عند الشراء وينبهه فور ظهور ما يؤكدها أو يضعفها.",
+      "isCore": false
+    },
+    {
+      "id": 61,
+      "name": "وكيل مجهّز الأوامر",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يجهز الأمر (السهم والكمية والسعر) ويحيله لتطبيق الوساطة للتأكيد والتنفيذ بيد المضارب.",
+      "isCore": false
+    },
+    {
+      "id": 62,
+      "name": "وكيل عداد الانحراف (Tilt) والوسم التلقائي",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يقيس الانحراف عن الخطة ويصنف الأخطاء تلقائياً (انتقام، فومو، إفراط، خروج مبكر) ويحسب تكلفة التسرع.",
+      "isCore": false
+    },
+    {
+      "id": 63,
+      "name": "وكيل السلال الموضوعية المصرية",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يراجع السلال المنشورة (سلة المصدرين، التوزيعات، التذبذب المنخفض) ويتابع إعادة توازنها.",
+      "isCore": false
+    },
+    {
+      "id": 64,
+      "name": "وكيل التكامل متعدد الوسطاء",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يوحد المحافظ الموزعة عبر أكثر من شركة وساطة في لوحة موحدة.",
+      "isCore": false
+    },
+    {
+      "id": 65,
+      "name": "وكيل تدقيق الأداء الربع سنوي",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يصدر تقرير التدقيق الربع سنوي العلني لأداء كل وكيل مع التكاليف والسيولة وفترات التراجع.",
+      "isCore": false
+    },
+    {
+      "id": 66,
+      "name": "وكيل مؤشر مزاج المضاربين المصريين",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يبني المؤشر المجمّع المجهول لتوجه مستخدمي المنصة كمصدر فريد للإعلام والباحثين.",
+      "isCore": false
+    },
+    {
+      "id": 67,
+      "name": "وكيل بوابة المطورين (API و MCP)",
+      "categoryKey": "global",
+      "categoryLabel": "ح. الدراسة العالمية",
+      "mission": "يدير الوصول المفتوح للمطورين والمحللين لبناء أدوات فوق بيانات ووكلاء المنصة.",
+      "isCore": false
+    },
+    {
+      "id": 68,
+      "name": "وكيل فاحص فخ السهم",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يحسب درجة 0-100 لسهولة الخروج وتركّز الملكية وتاريخ إيقاف التداول وعلامات الخطر.",
+      "isCore": false
+    },
+    {
+      "id": 69,
+      "name": "وكيل ختم الشفافية المشفر",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يختم التوصيات زمنياً وينشر الملخص المشفر اليومي للتحقق العلني من عدم تعديل الماضي.",
+      "isCore": false
+    },
+    {
+      "id": 70,
+      "name": "وكيل لوحة المضاربين الموثقين",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يدير اللوحة التعليمية ومقاييس المخاطر بالعربية والنسخ التجريبي ويُظهر «فرق التنفيذ».",
+      "isCore": false
+    },
+    {
+      "id": 71,
+      "name": "وكيل سياق الكبار",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يفسر حركة كبار المساهمين والصفقات الكبيرة بسياق تاريخي ويختار التنبيه المهم فقط.",
+      "isCore": false
+    },
+    {
+      "id": 72,
+      "name": "وكيل مؤشر الخوف والطمع المصري",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يبني المؤشر اليومي لمزاج السوق المصري (تذبذب + حجم تداول + اتساع الارتفاع + مشاعر).",
+      "isCore": false
+    },
+    {
+      "id": 73,
+      "name": "وكيل مدقق القنوات",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يسجل التوصيات العلنية للقنوات ويحسب أداءها الفعلي لاحقاً كإحصاء موضوعي.",
+      "isCore": false
+    },
+    {
+      "id": 74,
+      "name": "وكيل خطة الشراء الدوري",
+      "categoryKey": "crypto_adapted",
+      "categoryLabel": "ط. أدوات الشفافية المكيّفة لـ EGX",
+      "mission": "يدير خطط الشراء المنتظم بتذكير وتجهيز الأمر للمستثمر طويل الأجل مع وقف خسارة متحرك افتراضي.",
+      "isCore": false
+    },
+    {
+      "id": 75,
+      "name": "وكيل التحقق من الجهات والتراخيص",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يتحقق من ترخيص الجهات والمستشارين عبر السجلات الرسمية للرقابة المالية ويدير شارات التوثيق.",
+      "isCore": false
+    },
+    {
+      "id": 76,
+      "name": "وكيل فاحص ادعاءات الأداء",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يكتشف الادعاءات غير المسؤولة (وعد بعائد، غياب إفصاح الرعاية، ضغط زمني) في المنشورات.",
+      "isCore": false
+    },
+    {
+      "id": 77,
+      "name": "وكيل الحكم الشرعي المتقدم والزكاة",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يفسر الحكم الشرعي بالتفصيل ويحسب تطهير الأرباح وزكاة المحفظة بحسب نية المضاربة أو الاستثمار.",
+      "isCore": false
+    },
+    {
+      "id": 78,
+      "name": "وكيل مترجم ومبسّط الإفصاحات والقاموس",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يترجم ويلخص الإفصاحات ومؤتمرات الأرباح بالعامية ويشرح المصطلحات بلمسة واحدة داخل النص.",
+      "isCore": false
+    },
+    {
+      "id": 79,
+      "name": "وكيل مختبر النماذج الجماعي",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يدير مسابقة علماء البيانات المصريين على بيانات EGX المجهّلة ويدمج أفضل النماذج بنقاط السمعة.",
+      "isCore": false
+    },
+    {
+      "id": 80,
+      "name": "وكيل درجة المعايرة (Calibration)",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يقيس صدق تقديرات الثقة للوكلاء والمضاربين (هل ثقة 70% تحققت في 70% من الحالات؟).",
+      "isCore": false
+    },
+    {
+      "id": 81,
+      "name": "وكيل التصميم الأخلاقي والإشعار المفيد",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يراقب أثر الإشعارات والتصميم على سلوك المضارب ويحذف ما يرفع التداول بلا فائدة.",
+      "isCore": false
+    },
+    {
+      "id": 82,
+      "name": "وكيل بيانات الإفصاح المنظمة وتقرير التكاليف الموحد",
+      "categoryKey": "second_inquiry",
+      "categoryLabel": "ي. الاستقصاء الثاني",
+      "mission": "يحوّل إفصاحات الشركات إلى بيانات منظمة قابلة للبحث ويوحد نموذج مقارنة تكلفة الوسطاء.",
+      "isCore": false
+    },
+    {
+      "id": 83,
+      "name": "وكيل «اختر شركتك» (توصية السمسرة)",
+      "categoryKey": "brokers",
+      "categoryLabel": "ك. ملحق شركات السمسرة",
+      "mission": "يتعرف على نمط تداولك ويحسب التكلفة السنوية المتوقعة بالجنيه عند كل شركة ويرشح الأنسب لك في 3 جمل.",
+      "isCore": false
+    },
+    {
+      "id": 84,
+      "name": "وكيل مراقب أسعار الوساطة",
+      "categoryKey": "brokers",
+      "categoryLabel": "ك. ملحق شركات السمسرة",
+      "mission": "يتتبع قوائم أسعار شركات السمسرة وتغيراتها وتقرير البورصة الشهري ويحدث قاعدة البيانات تلقائياً.",
+      "isCore": false
+    }
+  ],
+  "safetyPledges": [
+    {
+      "number": 1,
+      "title": "لا نحتفظ بأموالك أبداً",
+      "detail": "لا نحتفظ بأموالك ولا نطلب كلمات مرور حسابات الوساطة، وأي جهة تطلب ذلك باسمنا فهي منتحلة."
+    },
+    {
+      "number": 2,
+      "title": "لا إعلانات ولا توصيات مدفوعة",
+      "detail": "لا نقبل مقابلاً من أي شركة لترويج سهمها، ولا نعرض إعلانات مضللة."
+    },
+    {
+      "number": 3,
+      "title": "منع تضارب المصالح",
+      "detail": "لا يتداول فريق بورصجي في الأسهم التي يوصي بها الوكلاء."
+    },
+    {
+      "number": 4,
+      "title": "سجل أداء ودرجة ثقة لكل توصية",
+      "detail": "كل توصية لها سجل أداء علني مختوم زمنياً ودرجة ثقة ومدى اتفاق الوكلاء."
+    },
+    {
+      "number": 5,
+      "title": "ننشر أخطاءنا كما ننشر نجاحنا",
+      "detail": "سجل الأخطاء العلني يعرض التوصيات الخاطئة وأسبابها بشفافية كاملة."
+    },
+    {
+      "number": 6,
+      "title": "لا وعود بربح ولا عبارات ضمان",
+      "detail": "لا نعدك بربح ولا نستخدم عبارات مثل «آمن 100%» أو «بلا خسارة»."
+    },
+    {
+      "number": 7,
+      "title": "لا نبيع بياناتك",
+      "detail": "لا نبيع بيانات المستخدمين ولا نشاركها مع شركات الوساطة دون موافقة صريحة."
+    },
+    {
+      "number": 8,
+      "title": "نحترم حد الخسارة الذي تحدده أنت",
+      "detail": "عند بلوغ أقصى خسارة يومية/أسبوعية يتوقف المرافق عن إصدار إشارات جديدة ويقترح استراحة."
+    },
+    {
+      "number": 9,
+      "title": "لا حيل تحفيزية للإفراط في التداول",
+      "detail": "لا إشعارات ضغط، ولا احتفالات تدفع لمزيد من التداول، ولا تصنيفات تكافئ المخاطرة العالية."
+    },
+    {
+      "number": 10,
+      "title": "نحذف بياناتك متى طلبت",
+      "detail": "حذف كل بياناتك بضغطة واحدة، مع دعم وضع الحساب المجهول (اسم مستعار)."
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "المرحلة 1",
+      "duration": "2 - 3 أشهر",
+      "deliverables": "بيانات السوق (EGX30/70/100)، الرابح والخاسر، الخرائط الحرارية، درجة الجودة الموحدة، واستمارة التعارف + وكيل اختر شركتك.",
+      "status": "النواة التأسيسية"
+    },
+    {
+      "phase": "المرحلة 2",
+      "duration": "3 أشهر",
+      "deliverables": "الوكلاء المتخصصون (النواة الـ 8)، التداول التجريبي (محفظة وهمية)، والاختبار التاريخي قبل أي إشارة.",
+      "status": "التطوير الذكي"
+    },
+    {
+      "phase": "المرحلة 3",
+      "duration": "3 أشهر",
+      "deliverables": "المرافق الذكي بوضعيه (الناصح والمدير والوضع الهجين)، سجل الأداء العلني المختوم زمنياً، وتنبيهات واتساب وتليجرام بالعامية.",
+      "status": "الإطلاق الكامل للمرافق"
+    },
+    {
+      "phase": "المرحلة 4",
+      "duration": "مستمرة",
+      "deliverables": "المجتمع الموثق بسجل أداء، تطبيق الجوال، شراكات شركات الوساطة (B2B White-label)، وبوابة المطورين (API & MCP).",
+      "status": "التوسع والشراكات"
+    }
+  ],
+  "legalPaths": [
+    {
+      "id": "lp1",
+      "pathName": "أ. منصة معلومات وتعليم وانضباط",
+      "description": "بلا توصيات شراء وبيع شخصية: أدوات، تحليل عام، تدريب سلوكي، سجل قرارات، ومقارنة تكاليف الوسطاء.",
+      "assessment": "الأسرع والأقل تكلفة، ويصلح لبدء الإطلاق الفوري وإثبات الفكرة."
+    },
+    {
+      "id": "lp2",
+      "pathName": "ب. شراكة مع شركة إدارة محافظ مرخصة",
+      "description": "تقدم الشركة الترخيص الرقابي، وتقدم بورصجي (borsagy.si) التقنية والتجربة والوكلاء الأذكياء.",
+      "assessment": "الأنسب لإطلاق ميزة التوصيات الشخصية بسرعة وأمان قانوني."
+    },
+    {
+      "id": "lp3",
+      "pathName": "ج. ترخيص مباشر كمستشار آلي للاستثمار",
+      "description": "وفق قرار الهيئة العامة للرقابة المالية رقم 57 لسنة 2024 والقرار 227 لسنة 2025 (رأس مال 15 مليون ج وتأمين سيبراني وتقارير ربع سنوية).",
+      "assessment": "الأثقل تنظيمياً، ويناسب مرحلة النمو المؤسسي بعد إثبات السوق."
+    }
+  ]
+}</script>
+  <script>
+    // Initialize Three.js 3D Viewport in standalone build
+    (function() {
+      const container = document.getElementById('three-hero');
+      if (!container || typeof THREE === 'undefined') return;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+      camera.position.set(0, 0.6, 7.5);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+
+      const group = new THREE.Group();
+      scene.add(group);
+      const geo = new THREE.IcosahedronGeometry(1.5, 1);
+      const mat = new THREE.MeshStandardMaterial({ color: '#10B981', wireframe: true });
+      const mesh = new THREE.Mesh(geo, mat);
+      group.add(mesh);
+
+      const light = new THREE.DirectionalLight(0xffffff, 1.8);
+      light.position.set(5, 5, 5);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0x334433, 1.2));
+
+      function animate() {
+        requestAnimationFrame(animate);
+        group.rotation.y += 0.005;
+        group.rotation.x += 0.002;
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+
+    // Standalone Agent Modal scripts
+    window.siteData = JSON.parse(document.getElementById('site-config-data').textContent);
+    function showAgentModal(id) {
+      const agent = window.siteData.agents.find(a => a.id === id);
+      if (!agent) return;
+      document.getElementById('modal-agent-title').textContent = '#' + agent.id + ' ' + agent.name + ' (' + agent.categoryLabel + ')';
+      document.getElementById('modal-agent-mission').textContent = agent.mission;
+      document.getElementById('modal-agent-comp').textContent = 'يتفوق هذا الوكيل على منصات التحليل المالي العامة بتخصيصه الكامل لآليات وقواعد البورصة المصرية (EGX) مع الامتثال الصارم لحدود المخاطرة.';
+      const modal = document.getElementById('agent-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeAgentModal() {
+      const modal = document.getElementById('agent-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
